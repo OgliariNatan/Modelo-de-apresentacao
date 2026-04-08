@@ -1,0 +1,204 @@
+%% ================================================================
+%% beamerthemeMemorial.sty
+%% Tema Beamer — Paleta: Preto, Cinza e Tons de Roxo
+%% Autor: Natan Ogliari  |  2026/04
+%% ================================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerthemeMemorial}[2026/04/08 Tema Beamer Memorial]
+
+\mode<presentation>
+
+\RequirePackage{tikz}
+\usetikzlibrary{calc}
+
+%% ================================================================
+%% PALETA DE CORES
+%% ================================================================
+\definecolor{MemPurpleDark} {RGB}{ 50,  10,  80}  % roxo profundo
+\definecolor{MemPurple}     {RGB}{ 98,  24, 145}  % roxo principal
+\definecolor{MemPurpleMid}  {RGB}{138,  60, 180}  % roxo médio
+\definecolor{MemPurpleLight}{RGB}{194, 152, 220}  % roxo claro
+\definecolor{MemPurplePale} {RGB}{237, 228, 248}  % roxo pálido (fundos)
+\definecolor{MemBlack}      {RGB}{ 20,  20,  25}  % quase-preto
+\definecolor{MemDarkGray}   {RGB}{ 48,  48,  56}  % cinza escuro
+\definecolor{MemMidGray}    {RGB}{108, 108, 118}  % cinza médio
+\definecolor{MemLightGray}  {RGB}{235, 235, 240}  % cinza claro
+\definecolor{MemWhite}      {RGB}{255, 255, 255}
+
+%% ================================================================
+%% ESQUEMA DE CORES BEAMER
+%% ================================================================
+
+%-- Texto geral
+\setbeamercolor{structure}   {fg=MemPurple}
+\setbeamercolor{normal text} {fg=MemBlack,       bg=MemWhite}
+\setbeamercolor{alerted text}{fg=MemPurple}
+\setbeamercolor{example text}{fg=MemPurpleMid}
+
+%-- Slide de título
+\setbeamercolor{title}    {fg=MemWhite,       bg=MemPurpleDark}
+\setbeamercolor{subtitle} {fg=MemPurpleLight, bg=MemPurpleDark}
+\setbeamercolor{author}   {fg=MemPurpleLight}
+\setbeamercolor{institute}{fg=MemPurpleLight}
+\setbeamercolor{date}     {fg=MemPurpleLight}
+
+%-- Cabeçalho dos slides
+\setbeamercolor{frametitle}   {fg=MemWhite,       bg=MemPurple}
+\setbeamercolor{framesubtitle}{fg=MemPurpleLight, bg=MemPurple}
+
+%-- Linhas de separação
+\setbeamercolor{upper separation line head}{bg=MemPurpleDark}
+\setbeamercolor{lower separation line head}{bg=MemPurpleLight}
+\setbeamercolor{upper separation line foot}{bg=MemPurpleLight}
+\setbeamercolor{lower separation line foot}{bg=MemDarkGray}
+
+%-- Rodapé
+\setbeamercolor{footline}{fg=MemWhite, bg=MemDarkGray}
+
+%-- Blocos
+\setbeamercolor{block title}          {fg=MemWhite, bg=MemPurple}
+\setbeamercolor{block body}           {fg=MemBlack, bg=MemPurplePale}
+\setbeamercolor{block title alerted}  {fg=MemWhite, bg=MemPurpleDark}
+\setbeamercolor{block body alerted}   {fg=MemBlack, bg=MemPurplePale}
+\setbeamercolor{block title example}  {fg=MemWhite, bg=MemDarkGray}
+\setbeamercolor{block body example}   {fg=MemBlack, bg=MemLightGray}
+
+%-- Itens
+\setbeamercolor{itemize item}         {fg=MemPurple}
+\setbeamercolor{itemize subitem}      {fg=MemPurpleMid}
+\setbeamercolor{itemize subsubitem}   {fg=MemMidGray}
+\setbeamercolor{enumerate item}       {fg=MemPurple}
+\setbeamercolor{enumerate subitem}    {fg=MemPurpleMid}
+\setbeamercolor{enumerate subsubitem} {fg=MemMidGray}
+
+%-- Sumário
+\setbeamercolor{section in toc}        {fg=MemPurpleDark}
+\setbeamercolor{section in toc shaded} {fg=MemMidGray}
+\setbeamercolor{subsection in toc}     {fg=MemPurple}
+
+%-- Rodapé de nota
+\setbeamercolor{footnote}     {fg=MemMidGray}
+\setbeamercolor{footnote mark}{fg=MemPurple}
+
+%% ================================================================
+%% FONTES
+%% ================================================================
+\setbeamerfont{title}         {size=\LARGE,      series=\bfseries}
+\setbeamerfont{subtitle}      {size=\large,      series=\normalfont}
+\setbeamerfont{author}        {size=\normalsize}
+\setbeamerfont{institute}     {size=\small}
+\setbeamerfont{date}          {size=\small}
+\setbeamerfont{frametitle}    {size=\large,      series=\bfseries}
+\setbeamerfont{framesubtitle} {size=\small}
+\setbeamerfont{block title}   {size=\normalsize, series=\bfseries}
+\setbeamerfont{section in toc}{series=\bfseries}
+\setbeamerfont{footline}      {size=\tiny}
+
+%% ================================================================
+%% OUTER THEME: HEADLINE, FRAMETITLE E FOOTLINE
+%% ================================================================
+
+%-- Linha superior
+\defbeamertemplate*{headline}{memorial}{%
+  \begin{beamercolorbox}[wd=\paperwidth, ht=0.5pt, dp=0pt]{upper separation line head}%
+  \end{beamercolorbox}%
+}
+
+%-- Título do frame
+\defbeamertemplate*{frametitle}{memorial}{%
+  \nointerlineskip%
+  \begin{beamercolorbox}[%
+      wd=\paperwidth, ht=2.5em, dp=0.8em,
+      leftskip=0.8cm, rightskip=0.8cm]{frametitle}%
+    \usebeamerfont{frametitle}\insertframetitle%
+    \ifx\insertframesubtitle\@empty\else%
+      \\[0.05em]%
+      {\usebeamerfont{framesubtitle}%
+       \usebeamercolor[fg]{framesubtitle}%
+       \insertframesubtitle}%
+    \fi%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=\paperwidth, ht=0.4pt, dp=0pt]{lower separation line head}%
+  \end{beamercolorbox}%
+}
+
+%-- Rodapé
+\defbeamertemplate*{footline}{memorial}{%
+  \begin{beamercolorbox}[wd=\paperwidth, ht=0.4pt, dp=0pt]{upper separation line foot}%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[%
+      wd=\paperwidth, ht=2em, dp=0.8em,
+      leftskip=0.6cm, rightskip=0.6cm]{footline}%
+    \usebeamerfont{footline}%
+    \insertshortauthor%
+    \hfill%
+    \insertshorttitle%
+    \hfill%
+    \insertframenumber\,/\,\inserttotalframenumber%
+  \end{beamercolorbox}%
+}
+
+%-- Sem botões de navegação
+\setbeamertemplate{navigation symbols}{}
+
+%% ================================================================
+%% INNER THEME: SLIDE DE TÍTULO
+%% ================================================================
+\defbeamertemplate*{title page}{memorial}{%
+  \begin{tikzpicture}[remember picture, overlay]
+    %-- Fundo completo roxo escuro
+    \fill[MemPurpleDark]
+      (current page.south west) rectangle (current page.north east);
+    %-- Barra lateral esquerda (acento)
+    \fill[MemPurple]
+      (current page.south west) rectangle
+      ([xshift=0.055\paperwidth] current page.north west);
+    %-- Faixa inferior (acento)
+    \fill[MemPurpleMid]
+      (current page.south west) rectangle
+      ([yshift=0.055\paperheight] current page.south east);
+    %-- Círculo decorativo translúcido
+    \fill[MemPurple, opacity=0.22]
+      ([xshift=0.76\paperwidth, yshift=0.62\paperheight] current page.south west)
+      circle (2.9cm);
+    \fill[MemPurpleMid, opacity=0.15]
+      ([xshift=0.82\paperwidth, yshift=0.30\paperheight] current page.south west)
+      circle (1.8cm);
+  \end{tikzpicture}%
+  \vspace{0.7cm}%
+  \begin{center}%
+    \ifx\inserttitlegraphic\@empty\else%
+      {\inserttitlegraphic}\\[0.30cm]%
+    \fi%
+    {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}\\[0.20cm]%
+    \ifx\insertsubtitle\@empty\else%
+      {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}\\[0.35cm]%
+    \fi%
+    \textcolor{MemPurpleLight}{\rule{0.48\textwidth}{0.6pt}}\\[0.35cm]%
+    {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor}\\[0.15cm]%
+    \ifx\insertinstitute\@empty\else%
+      {\usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute}\\[0.15cm]%
+    \fi%
+    {\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate}%
+  \end{center}%
+}
+
+%% ================================================================
+%% MARCADORES DE ITENS
+%% ================================================================
+\setbeamertemplate{itemize item}{%
+  \textcolor{MemPurple}{\raisebox{0.1ex}{\footnotesize$\blacksquare$}}%
+}
+\setbeamertemplate{itemize subitem}{%
+  \textcolor{MemPurpleMid}{\raisebox{0.1ex}{\small$\blacktriangleright$}}%
+}
+\setbeamertemplate{itemize subsubitem}{%
+  \textcolor{MemMidGray}{--}%
+}
+
+%% ================================================================
+%% BLOCOS
+%% ================================================================
+\setbeamertemplate{blocks}[rounded][shadow=false]
+
+\mode<all>
