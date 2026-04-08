@@ -80,6 +80,9 @@
 \setbeamercolor{footnote}     {fg=MemMidGray}
 \setbeamercolor{footnote mark}{fg=MemPurple}
 
+%-- Botões de navegação
+\setbeamercolor{navigation symbols}{fg=MemPurpleLight, bg=MemDarkGray}
+
 %% ================================================================
 %% FONTES
 %% ================================================================
@@ -135,10 +138,20 @@
     \insertshorttitle%
     \hfill%
     \insertframenumber\,/\,\inserttotalframenumber%
+    \hspace{0.4cm}%
+    {\usebeamercolor[fg]{navigation symbols}%
+      \insertslidenavigationsymbol%
+      \insertframenavigationsymbol%
+      \insertsubsectionnavigationsymbol%
+      \insertsectionnavigationsymbol%
+      \insertdocnavigationsymbol%
+      \insertbackfindforwardnavigationsymbol%
+    }%
+    \hspace{0.1cm}%
   \end{beamercolorbox}%
 }
 
-%-- Sem botões de navegação
+%-- Botões de navegação desativados fora do rodapé customizado
 \setbeamertemplate{navigation symbols}{}
 
 %% ================================================================
