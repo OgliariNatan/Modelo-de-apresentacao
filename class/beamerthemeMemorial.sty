@@ -178,22 +178,23 @@
       ([xshift=0.82\paperwidth, yshift=0.30\paperheight] current page.south west)
       circle (1.8cm);
   \end{tikzpicture}%
-  \vspace{0.7cm}%
+  \vfill%
   \begin{center}%
     \ifx\inserttitlegraphic\@empty\else%
-      {\inserttitlegraphic}\\[0.30cm]%
+      {\inserttitlegraphic}\\[0.15cm]%
     \fi%
-    {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}\\[0.20cm]%
+    {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}\\[0.10cm]%
     \ifx\insertsubtitle\@empty\else%
-      {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}\\[0.35cm]%
+      {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}\\[0.20cm]%
     \fi%
-    \textcolor{MemPurpleLight}{\rule{0.48\textwidth}{0.6pt}}\\[0.35cm]%
-    {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor}\\[0.15cm]%
+    \textcolor{MemPurpleLight}{\rule{0.48\textwidth}{0.6pt}}\\[0.20cm]%
+    {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor}\\[0.10cm]%
     \ifx\insertinstitute\@empty\else%
-      {\usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute}\\[0.15cm]%
+      {\usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute}\\[0.10cm]%
     \fi%
     {\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate}%
   \end{center}%
+  \vspace*{\stretch{3}}%
 }
 
 %% ================================================================
